@@ -16,7 +16,7 @@ export function Navigation() {
           <div className="p-2 bg-primary rounded-lg group-hover:bg-accent transition-colors duration-300">
             <Music className="w-5 h-5 text-primary-foreground" />
           </div>
-          <span className="font-bold text-lg sm:text-xl tracking-tight">Harmonia</span>
+          <span className="font-bold text-lg sm:text-xl tracking-tight">Sound Waves</span>
         </Link>
 
         <div className="relative">

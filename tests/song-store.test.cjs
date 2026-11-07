@@ -65,10 +65,11 @@ test("private blobs survive separate instances, rename, paginate, and delete", a
   assert(blobs.has(`songs/${a.id}/test-artist-test-song.json`));
   assert.equal((await second.getSong(a.id)).title, input.title);
   assert.equal((await first.listSongs()).length, 2);
-  await second.updateSong(a.id, { title: "Renamed" });
+  await second.updateSong(a.id, { title: "Renamed", transpose: 3 });
   assert(!blobs.has(`songs/${a.id}/test-artist-test-song.json`));
   assert(blobs.has(`songs/${a.id}/test-artist-renamed.json`));
   assert.equal((await first.getSong(a.id)).title, "Renamed");
+  assert.equal((await first.getSong(a.id)).transpose, 3);
   assert.equal(await first.deleteSong(a.id), true);
   assert.equal(await second.getSong(a.id), undefined);
   assert.equal(await first.deleteSong(a.id), false);
@@ -87,8 +88,9 @@ test("local files retain artist-title naming and support CRUD", async () => {
     const song = await store.createSong(input);
     assert.deepEqual(await readdir(path.join(directory, "songs")), ["test-artist-test-song.json"]);
     assert.equal((await store.getSong(song.id)).title, input.title);
-    await store.updateSong(song.id, { title: "Renamed" });
+    await store.updateSong(song.id, { title: "Renamed", transpose: -2 });
     assert.deepEqual(await readdir(path.join(directory, "songs")), ["test-artist-renamed.json"]);
+    assert.equal((await store.getSong(song.id)).transpose, -2);
     assert.equal(await store.deleteSong(song.id), true);
     assert.equal((await store.listSongs()).length, 0);
   } finally {

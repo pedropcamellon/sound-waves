@@ -13,7 +13,7 @@ import { SongControls } from "@/components/SongControls";
 import { ConfirmDialog } from "@/components/ui/confirm-dialog";
 import { SongActions } from "@/components/SongActions";
 import { Button } from "@/components/ui/button";
-import { deleteSong } from "@/lib/song-api";
+import { deleteSong, updateSong } from "@/lib/song-api";
 
 // Types
 import type { Song } from "@/lib/song-schema";
@@ -24,7 +24,7 @@ interface SongDetailsClientProps {
 
 export function SongDetailsClient({ song }: SongDetailsClientProps) {
   const router = useRouter();
-  const [transpose, setTranspose] = useState(0);
+  const [transpose, setTranspose] = useState(song.transpose ?? 0);
   const [showDeleteDialog, setShowDeleteDialog] = useState(false);
 
   const currentKey = useMemo(() => {
@@ -32,6 +32,16 @@ export function SongDetailsClient({ song }: SongDetailsClientProps) {
     if (transpose === 0) return song.key;
     return transposeChord(song.key, transpose);
   }, [song?.key, transpose]);
+
+  const handleTransposeChange = async (value: number) => {
+    setTranspose(value);
+    try {
+      await updateSong(song.id, { transpose: value });
+    } catch (error) {
+      setTranspose(song.transpose ?? 0);
+      console.error("Error saving selected key:", error);
+    }
+  };
 
   const handleDelete = async () => {
     try {
@@ -91,7 +101,7 @@ export function SongDetailsClient({ song }: SongDetailsClientProps) {
       {/* Song Controls */}
       <SongControls
         transpose={transpose}
-        onTransposeChange={setTranspose}
+        onTransposeChange={handleTransposeChange}
         originalKey={song.key || "C"}
         currentKey={currentKey}
       />

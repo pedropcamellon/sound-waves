@@ -1,4 +1,4 @@
-# Frontend Specification - Harmonia
+# Frontend Specification - Sound Waves
 
 ## Overview
 
@@ -24,7 +24,7 @@ Two distinct but similar editor experiences exist: one for creating new songs an
 
 ### Navigation and Layout
 
-A persistent navigation bar spans the top of every page, providing consistent wayfinding. The navigation includes the application name "Harmonia" as a home link, along with primary actions like "New Song" and potentially user profile controls if authentication is added later. The navigation should be responsive, collapsing into a mobile menu on smaller screens. The overall layout uses a root layout component that wraps all pages, providing consistent styling, font loading, and global providers. Dark mode support could be implemented through a theme provider, persisting user preference across sessions.
+A persistent navigation bar spans the top of every page, providing consistent wayfinding. The navigation includes the application name "Sound Waves" as a home link, along with primary actions like "New Song" and potentially user profile controls if authentication is added later. The navigation should be responsive, collapsing into a mobile menu on smaller screens. The overall layout uses a root layout component that wraps all pages, providing consistent styling, font loading, and global providers. Dark mode support could be implemented through a theme provider, persisting user preference across sessions.
 
 ## Component Architecture
 

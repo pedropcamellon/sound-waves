@@ -8,7 +8,9 @@ export type CreateSongInput = {
   rawContent: string;
 };
 
-export type UpdateSongInput = Partial<CreateSongInput>;
+export type UpdateSongInput = Partial<CreateSongInput> & {
+  transpose?: number;
+};
 
 export async function createSong(input: CreateSongInput): Promise<Song> {
   const response = await fetch("/api/songs", {

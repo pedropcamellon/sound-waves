@@ -1,4 +1,4 @@
-# Harmonia - Chord Management App
+# Sound Waves - Chord Management App
 
 A modern chord management and songbook application built with Next.js 15, featuring chord parsing, transposition, and key detection.
 
@@ -39,7 +39,7 @@ Manual wheel/touch scrolling, navigation keys, hiding the tab, or reaching the p
 
    ```bash
    git clone <your-repo-url>
-   cd harmonia
+   cd sound-waves
    ```
 
 2. Install dependencies:

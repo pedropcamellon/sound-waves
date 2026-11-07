@@ -1,6 +1,6 @@
-# Harmonia Agent
+# Sound Waves Agent
 
-Harmonia is a lyrics with chord management app. It helps transpose chords and detect keys.
+Sound Waves is a lyrics with chord management app. It helps transpose chords and detect keys.
 
 ## Tech Stack
 

@@ -4,7 +4,7 @@ services:
       context: .
       dockerfile: Dockerfile
       target: development
-    container_name: harmonia-app
+    container_name: sound-waves-app
     restart: unless-stopped
     ports:
       - "3000:3000"

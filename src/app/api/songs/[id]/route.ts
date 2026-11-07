@@ -12,6 +12,7 @@ const updateSongSchema = z.object({
   title: z.string().optional(),
   artist: z.string().optional(),
   key: z.string().optional(),
+  transpose: z.number().int().min(-11).max(11).optional(),
   rawContent: z.string().optional(),
 });
 
@@ -58,6 +59,7 @@ export async function PUT(
     if (input.title) updateData.title = input.title;
     if (input.artist) updateData.artist = input.artist;
     if (input.key) updateData.key = input.key;
+    if (input.transpose !== undefined) updateData.transpose = input.transpose;
 
     if (input.rawContent) {
       updateData.rawContent = input.rawContent;

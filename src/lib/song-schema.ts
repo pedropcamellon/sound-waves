@@ -16,6 +16,7 @@ export type Song = {
     title: string;
     artist: string;
     key: string | null;
+    transpose?: number;
     detectedKey: string | null;
     keyConfidence: number | null;
     rawContent: string;
