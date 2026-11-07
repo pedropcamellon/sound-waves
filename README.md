@@ -2,6 +2,10 @@
 
 A modern chord management and songbook application built with Next.js 15, featuring chord parsing, transposition, and key detection.
 
+![Home page screenshot](home-page-screenshot.png)
+
+![Wish you were here - song preview](wish_you_were_here_preview.png)
+
 ## Tech Stack
 
 - **Framework:** Next.js 15 (App Router)
